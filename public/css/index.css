@@ -1,0 +1,553 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,body{
+	font: normal 16px/20px "Helvetica Neue", Helvetica, sans-serif;
+	background: rgba(255, 255, 255, 1); /* #ffffff */
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height:100%;
+	color: rgba(170, 170, 170, 1); /* #aaaaaa */
+}
+section[name='application'] {
+    position: absolute;
+	width: 900px;
+	min-height: 600px;
+    left: 50%;
+    margin-top: 5px;
+    margin-left: -450px;
+}
+section[name='application'] #application-msg {
+    width: 100%;
+	height: 60px;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	padding: 20px;
+	background: rgba(66, 66, 66, 1);
+	border: 1px solid #EEE;
+}
+section[name='application'] #previews {
+    position: relative;
+    width: 900px;
+    min-height: 445px;
+    margin-top: 5px;
+    padding: 10px;
+	background: rgba(66, 66, 66, 0.9);
+	background-image: url("../img/sprite002.png");
+	background-repeat: repeat-x;
+	background-position: 35px -510px;
+	border: 2px dashed #666;
+}
+section[name='application'] #date_time {
+    background: rgba(66, 66, 66, 0.9);
+    width : 875px;
+	height: 25px;
+    margin: 5px 0 0 0;
+    padding-top: 2px;
+	text-align: center;
+}
+section[name='application'] #previews .dz-preview {
+    position: relative;
+    display: inline-block;
+    width : 875px;
+	min-height: 200px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #acacac;
+    padding: 5px;
+    -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.56);
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.56);
+}
+section[name='application'] #previews .dz-image-preview {
+	width : 875px;
+	height: 205px;
+}
+section[name='application'] #previews .dz-preview .dz-image {
+	position: absolute;
+	width: 260px;
+	height: 190px;
+	left: 5px;
+	top: 5px;
+	background: #ebebeb;
+	padding: 5px;
+}
+section[name='application'] #previews .dz-preview .dz-details {
+	position: absolute;
+	width: 595px;
+	height: 130px;
+	left: 275px;
+	top: 5px;
+	background: #ebebeb;
+	padding: 5px;
+}
+section[name='application'] #previews .dz-preview.dz-file-preview [data-dz-thumbnail] {
+    display: block;
+	width: 260px;
+	height: 190px;
+	background-image: url("../img/logo-white.png");
+	background-repeat: no-repeat;
+	background-position: 0 -10px;
+}
+section[name='application'] #previews .dz-preview .dz-details .dz-filename {
+    overflow: hidden;
+    position: absolute;
+    width: 475px;
+	height: 30px;
+    font-size: 15px;
+	line-height: 28px;
+	padding-left: 10px;
+    padding-top: 2px;
+	background: rgba(22, 22, 22, 0.9);
+	color: #fff;
+}
+section[name='application'] #previews .dz-preview .dz-details .dz-size {
+    position: absolute;
+    width: 105px;
+	height: 30px;
+	top: 5px;
+	left: 220px;
+    margin-left: 265px;
+	line-height: 28px;
+	padding: 2px 10px 0 10px;
+	background: rgba(0, 0, 0, 0.9);
+    text-align: right;
+}
+section[name='application'] #previews .dz-preview .dz-details img {
+    float: right;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 250px;
+	height: 190px;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
+section[name='application'] #previews .dz-preview:hover .dz-details img {
+  display: none;
+}
+section[name='application'] #previews .dz-preview.dz-image-preview:hover .dz-details img {
+  display: block;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+section[name='application'] #previews .dz-preview .dz-progress {
+    display: none;
+    position: absolute;
+	width: 595px;
+    height: 20px;
+    top: 140px;
+	left: 275px;
+    background: #f00;
+}
+section[name='application'] #previews .dz-preview.dz-processing .dz-progress {
+	display: block;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+section[name='application'] #previews .dz-preview .dz-progress .dz-upload {
+    -webkit-animation: loading 0.4s linear infinite;
+    -moz-animation: loading 0.4s linear infinite;
+    -o-animation: loading 0.4s linear infinite;
+    -ms-animation: loading 0.4s linear infinite;
+    animation: loading 0.4s linear infinite;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    -ms-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #8cc657;
+    background-image: url("../img/sprite002.png");
+    background-repeat: repeat-x;
+    background-position: 0px -500px;
+}
+@-moz-keyframes loading {
+    0% {background-position: 0 -500px;}
+    100% {background-position: -14px -500px;}
+}
+@-webkit-keyframes loading {
+    0% {background-position: 0 -500px;}
+    100% {background-position: -14px -500px;}
+}
+@-o-keyframes loading {
+    0% {background-position: 0 -500px;}
+    100% {background-position: -14px -500px;}
+}
+@-ms-keyframes loading {
+    0% {background-position: 0 -500px;}
+    100% {background-position: -14px -500px;}
+}
+@keyframes loading {
+    0% {background-position: 0 -500px;}
+    100% {background-position: -14px -500px;}
+}
+section[name='application'] #previews .dz-preview.dz-success .dz-progress {
+  display: block;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  -ms-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+section[name='application'] #previews .dz-preview .dz-error-message {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.9);
+  padding: 10px;
+  color: #aaa;
+  z-index: 500;
+}
+section[name='application'] #previews .dz-preview .dz-error-message {
+  display: block;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    /* fallback for non-Flexbox browsers */
+
+    /* Flexbox browsers */
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+
+    /* vertical centering for legacy, horizontal centering for modern */
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    /* modern Flexbox only */
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    /* legacy Flexbox only */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+}
+section[name='application'] #previews .dz-preview:hover.dz-error .dz-error-message {
+  display: block;
+  overflow: auto;
+
+  width: 100%;
+  height: 75%;
+  top: 0;
+  left: 0;
+
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    /* fallback for non-Flexbox browsers */
+
+    /* Flexbox browsers */
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+
+    /* vertical centering for legacy, horizontal centering for modern */
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    /* modern Flexbox only */
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    /* legacy Flexbox only */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+}
+section[name='application'] #previews .dz-preview.dz-success .dz-success-mark,
+section[name='application'] #previews .dz-preview.dz-error .dz-error-mark {
+  display: block;
+}
+section[name='application'] #previews .dz-preview .dz-success-mark,
+section[name='application'] #previews .dz-preview .dz-error-mark {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    right: 20px;
+    top: 10px;
+}
+section[name='application'] #previews .dz-preview.dz-success .dz-success-mark,
+section[name='application'] #previews .dz-preview.dz-error .dz-error-mark {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  z-index: 501;
+}
+section[name='application'] #previews .dz-preview .dz-success-mark,
+section[name='application'] #previews .dz-preview .dz-error-mark {
+  display: block;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -webkit-transition: opacity 0.8s ease-in-out;
+  -moz-transition: opacity 0.8s ease-in-out;
+  -o-transition: opacity 0.8s ease-in-out;
+  -ms-transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
+  background-repeat: no-repeat;
+}
+section[name='application'] #previews a.dz-remove {
+	text-decoration: none;
+	display: block;
+	position: absolute;
+	width: 595px;
+	height: 30px;
+	top: 165px;
+	left: 275px;
+	padding: 4px 5px;
+	text-align: center;
+	color: #aaa;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #eee));
+	background-image: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+	background-image: -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+	background-image: -o-linear-gradient(top, #fafafa 0%, #eee 100%);
+	background-image: -ms-linear-gradient(top, #fafafa 0%, #eee 100%);
+	background-image: linear-gradient(top, #fafafa 0%, #eee 100%);
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #eee;
+}
+section[name='application'] #previews a.dz-remove:hover {
+  color: #444;
+}
+section[name='application'] #application-button-container {
+	text-align: center;
+	width: 605px;
+}
+section[name='application'] .application-button {
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	padding: 4px 5px;
+	border-radius: 5px;
+}
+section[name='application'] #application-reset {
+	width: 140px;
+	color: #fff;
+	background-image: -moz-linear-gradient(center top , #5fa 0%, #084 100%);
+	border: 1px solid #efe;
+}
+section[name='application'] #application-submit {
+	width: 140px;
+	color: #fff;
+	background-image: -moz-linear-gradient(center top , #5af 0%, #06a 100%);
+	border: 1px solid #eee;
+}
+section[name='mydropzone'] {
+	display: none;
+	position: absolute;
+	width : 100%;
+	height: 100%;
+    left: 0;
+    top: 0;
+	background: rgba(44, 44, 44, 0.98); /* #2c2c2c */
+}
+section[name='mydropzone'] #mydropzone-box {
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	margin: 10px;
+	left: 50%;
+	top: 50%;
+	margin-left: -125px;
+	margin-top: -125px;
+	padding-top: 20px;
+	background: rgba(44, 44, 44, 0.98);
+	border: 10px dashed #666;
+	color: #aaa;
+	text-align: center;
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+section[name='mydropzone'] #mydropzone-box:hover {
+	border: 10px dashed #fff;
+	color: #eee;
+}
+section[name='mydropzone'] #mydropzone-box em {
+	font-weight: 800;
+	font-size: 24px;
+}
+section[name='mydropzone'] #mydropzone-exit {
+	display: block;
+	width: 250px;
+	text-decoration: none;
+	text-align: center;
+	color: #AAA;
+	margin: 580px auto 0 auto;
+	padding: 4px 5px;
+	background-image: -moz-linear-gradient(center top , #FAFAFA 0%, #EEE 100%);
+	border-radius: 4px;
+	border: 1px solid #EEE;
+}
+#logo {
+    position: absolute;
+    right: 0;
+    top: 0;
+	width: 200px;
+	height: 200px;
+    background-image: url("../img/logo-white.png");
+
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+
+    -ms-transform: scale(1); /* IE */
+	-moz-transform: scale(1); /* FF */
+	-webkit-transform: scale(1); /* Safari and Chrome */
+	-o-transform: scale(1); /* Opera */
+
+    opacity: 0.05;
+    filter: alpha(opacity=5);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=5)";
+}
+#logo:hover {
+    background-image: url("../img/logo-small.png");
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+section[name='author'] {
+    display: none;
+	position: absolute;
+	width :100%;
+	height: 100%;
+    left: 0;
+    top: 0;
+	background: rgba(44, 44, 44, 0.98); /* #2c2c2c */
+}
+section[name='author'] #author-container {
+    position: absolute;
+	z-index: 999;
+	width: 800px;
+	height: 460px;
+	left: 50%;
+	top: 50%;
+	margin-left: -400px;
+	margin-top: -230px;
+	background: rgba(221, 245, 239, 0.98); /* #ddf5ef */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+section[name='author'] #author-container #author-exit {
+    float: right;
+	width: 60px;
+	height: 40px;
+	margin-right: 10px;
+	margin-top: 15px;
+    padding: 10px;
+	background: url("../img/sprite001.png") no-repeat scroll 10px -40px rgba(173, 213, 207, 0.98); /* #add5cf */
+	background-size: 40px 80px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+section[name='author'] #author-container #author-logo-container {
+    float: left;
+	width: 300px;
+	height:300px;
+	margin-left: 20px;
+	margin-top: 80px;
+	background: #add5cf;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border-right: 5px solid rgba(204, 238, 238, 0.98);  /* #cceeee */
+	border-bottom: 5px solid rgba(204, 238, 238, 0.98);  /* #cceeee */
+}
+section[name='author'] #author-container #author-logo-container #author-logo {
+    width: 256px;
+    height: 256px;
+    margin: 20px;
+}
+section[name='author'] #author-container article#author-description {
+    float: left;
+	font-size: 90%;
+	color: rgba(84, 84, 84, 0.5); /* #545454 */
+    background: rgba(255, 255, 255, 1); /* #ffffff */
+	width: 395px;
+	height: 250px;
+	margin-left: 15px;
+	margin-top: 80px;
+	padding: 20px;
+	border: 5px solid rgba(204, 238, 238, 0.98);  /* #cceeee */
+	text-align: justify;
+}
+section[name='author'] #author-container article#author-description h3{
+    color: rgba(84, 84, 84, 1); /* #545454 */
+}
+section[name='author'] #author-container article#author-description span{
+    color: rgba(255, 0, 0, 0.98);  /* #ff0000 */
+}
+section[name='author'] #author-container #author-link{
+    float: right;
+	font-size: 110%;
+	color: rgba(153, 153, 153, 0.98);  /* #999999 */
+	margin-right: 75px;
+	margin-top: 15px;
+}
+section[name='author'] #author-container #author-link a{
+    text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+}

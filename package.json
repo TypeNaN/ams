@@ -1,0 +1,30 @@
+{
+  "name": "AMS",
+  "version": "v0.0.0",
+  "description": "AMS : Advertising Management System ระบบบริหารและควบคุมการผลิตป้ายโฆษณาประชาสัมพันธ์",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yanatecho/AMS"
+  },
+  "keywords": [
+    "ams"
+  ],
+  "author": "Chaimongkol Mangklathon <krajay{mail[@]gmail}.com>",
+  "license": "GNU General Public License, version 2 (GPL-2.0)",
+  "bugs": {
+    "url": "https://github.com/Yanatecho/AMS/issues"
+  },
+  "homepage": "https://github.com/Yanatecho/AMS",
+  "dependencies": {
+    "express": "^4.12.0",
+    "multer": "^0.1.8"
+  },
+  "log": [
+  	"อัพโหลดไฟล์ได้เป็นครั้งแรก"
+  ]
+}
