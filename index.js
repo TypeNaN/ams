@@ -2,8 +2,7 @@ var express			= require('express')
 	, app			= express()
 	, server		= require('http').createServer(app)
 	, path			= require('path')
-	, multer		= require('multer')
-	, fs			= require('fs');
+	, multer		= require('multer');
 
 app.set('port', 8000);
 app.use('/',express.static(path.join(__dirname, '/public')));
