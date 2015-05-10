@@ -53,7 +53,7 @@ section[name='application'] #previews .dz-preview {
     position: relative;
     display: inline-block;
     width : 875px;
-	min-height: 200px;
+	min-height: 325px;
     margin-top: 10px;
     background: rgba(255,255,255,0.8);
     border: 1px solid #acacac;
@@ -61,67 +61,53 @@ section[name='application'] #previews .dz-preview {
     -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.56);
     box-shadow: 1px 1px 4px rgba(0,0,0,0.56);
 }
-section[name='application'] #previews .dz-image-preview {
-	width : 875px;
-	height: 205px;
+section[name='application'] #previews .customer-container {
+    width: 875px;
+	height: 50px;
+    background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.8);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.56);
+    padding: 6px;
+}
+section[name='application'] #previews .customer-container .label-customer{
+    margin: 1px 1px 1px 15px;
+}
+section[name='application'] #previews .customer-container .label-contact {
+    margin: 1px 1px 1px 15px;
+}
+section[name='application'] #previews .customer-container .input-text {
+    width: 340px;
+	height: 35px;
+	background: #ddd;
+	border: 2px solid #444;
+	color: #222;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 5px;
+	margin: 1px 1px 1px 10px;
+}
+section[name='application'] #previews .dz-preview.dz-file-preview [data-dz-thumbnail] {
+    display: block;
+	width: 260px;
+	height: 300px;
+	background-image: url("../img/logo-white.png");
+	background-repeat: no-repeat;
+	background-position: 0 -10px;
 }
 section[name='application'] #previews .dz-preview .dz-image {
 	position: absolute;
 	width: 260px;
-	height: 190px;
+	height: 310px;
 	left: 5px;
 	top: 5px;
 	background: #ebebeb;
 	padding: 5px;
 }
-section[name='application'] #previews .dz-preview .dz-details {
+section[name='application'] #previews .dz-preview .dz-image img {
 	position: absolute;
-	width: 595px;
-	height: 130px;
-	left: 275px;
-	top: 5px;
-	background: #ebebeb;
-	padding: 5px;
-}
-section[name='application'] #previews .dz-preview.dz-file-preview [data-dz-thumbnail] {
-    display: block;
-	width: 260px;
-	height: 190px;
-	background-image: url("../img/logo-white.png");
-	background-repeat: no-repeat;
-	background-position: 0 -10px;
-}
-section[name='application'] #previews .dz-preview .dz-details .dz-filename {
-    overflow: hidden;
-    position: absolute;
-    width: 475px;
-	height: 30px;
-    font-size: 15px;
-	line-height: 28px;
-	padding-left: 10px;
-    padding-top: 2px;
-	background: rgba(22, 22, 22, 0.9);
-	color: #fff;
-}
-section[name='application'] #previews .dz-preview .dz-details .dz-size {
-    position: absolute;
-    width: 105px;
-	height: 30px;
-	top: 5px;
-	left: 220px;
-    margin-left: 265px;
-	line-height: 28px;
-	padding: 2px 10px 0 10px;
-	background: rgba(0, 0, 0, 0.9);
-    text-align: right;
-}
-section[name='application'] #previews .dz-preview .dz-details img {
-    float: right;
-	position: absolute;
+	width: 250px;
+	height: 300px;
 	top: 5px;
 	right: 5px;
-	width: 250px;
-	height: 190px;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
@@ -131,22 +117,145 @@ section[name='application'] #previews .dz-preview .dz-details img {
     filter: alpha(opacity=60);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
 }
-section[name='application'] #previews .dz-preview:hover .dz-details img {
+section[name='application'] #previews .dz-preview:hover .dz-image img {
   display: none;
 }
-section[name='application'] #previews .dz-preview.dz-image-preview:hover .dz-details img {
+section[name='application'] #previews .dz-preview.dz-image-preview:hover .dz-image img {
   display: block;
   opacity: 1;
   filter: alpha(opacity=100);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
+section[name='application'] #previews .dz-preview .dz-details {
+    float: right;
+	width: 595px;
+	height: 280px;
+	background: #ebebeb;
+	padding: 5px;
+}
+section[name='application'] #previews .dz-preview .dz-details .on-addedfile {
+    position: absolute;
+    width: 585px;
+    height: 275px;
+    padding-top: 60px;
+    text-align: center;
+    background: #000;
+}
+section[name='application'] #previews .dz-preview .dz-details .dz-filename {
+    overflow: hidden;
+    position: absolute;
+    width: 475px;
+	height: 30px;
+	padding-left: 10px;
+    font-size: 15px;
+	line-height: 30px;
+	background: rgba(22, 22, 22, 0.9);
+	color: #fff;
+}
+section[name='application'] #previews .dz-preview .dz-details .dz-size {
+    position: absolute;
+    width: 105px;
+	height: 30px;
+    margin-left: 480px;
+	line-height: 30px;
+	padding: 2px 10px 0 10px;
+	background: rgba(0, 0, 0, 0.9);
+    text-align: right;
+}section[name='application'] #previews .dz-preview .dz-details ul.artwork-type {
+	width: 585px;
+	height: 42px;
+	margin-top: 35px;
+    margin-bottom: 0;
+    line-height: 42px;
+	background: rgba(66, 66, 66, 0.9);
+	border-top: 2px dashed #666;
+    list-style-type: none;
+    text-align: center;
+}
+section[name='application'] #previews .dz-preview .dz-details ul.artwork-type li {
+    display: inline;
+    margin-left: 5px;
+}
+section[name='application'] #previews .dz-preview .dz-details ul.artwork-type li label {
+    vertical-align: text-middle;
+    margin-left: 5px;
+}
+section[name='application'] #previews .dz-preview .dz-details ul.artwork-mat {
+	width: 170px;
+	height: 170px;
+    margin-top: 5px;
+    margin-bottom: 0;
+	padding: 5px;
+	background: rgba(66, 66, 66, 0.9);
+	border-top: 2px dashed #666;
+    list-style-type: none;
+}
+section[name='application'] #previews .dz-preview .dz-details ul.artwork-option {
+	width: 170px;
+	height: 170px;
+	margin: -170px 0 0 175px;
+	padding: 5px;
+	background: rgba(66, 66, 66, 0.9);
+	border-top: 2px dashed #666;
+    list-style-type: none;
+}
+section[name='application'] #previews .dz-preview .dz-details div.artwork-meta {
+	width: 208px;
+	height: 130px;
+	margin: -170px 0px 0px 350px;
+	padding: 15px 5px 5px 5px;
+	background: rgba(66, 66, 66, 0.9);
+	border-top: 2px dashed #666;
+}
+section[name='application'] #previews .dz-preview .dz-details div.artwork-meta input {
+	height: 30px;
+	background: #ddd;
+	border: 2px solid #444;
+	color: #222;
+	font-size: 14px;
+	text-align:center;
+	border-radius: 5px;
+	margin: 1px;
+}
+section[name='application'] #previews .dz-preview .dz-details div.artwork-meta input.input-text-width {
+	width: 88px;
+}
+section[name='application'] #previews .dz-preview .dz-details div.artwork-meta input.input-text-height {
+	width: 88px;
+}
+section[name='application'] #previews .dz-preview .dz-details div.artwork-meta input.input-text-amount {
+	width: 194px;
+}
+section[name='application'] #previews .dz-preview .dz-details div.artwork-meta input.input-text-comment {
+	width: 194px;
+}
+section[name='application'] #previews .dz-preview .dz-details .input-checkbox-urgently {
+    position: relative;
+	width: 208px;
+	height: 35px;
+	margin: 5px 0px 20px 350px;
+	padding: 5px;
+	background: rgba(66, 66, 66, 0.9);
+	border-top: 2px dashed #666;
+	font-size: 200%;
+	text-align: right;
+}
+section[name='application'] #previews .dz-preview .dz-details .input-checkbox-urgently input[type=checkbox] {
+	display: inline;
+    margin:  0 10px 0 0;
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(1.8); /* IE */
+	-moz-transform: scale(1.8); /* FF */
+	-webkit-transform: scale(1.8); /* Safari and Chrome */
+	-o-transform: scale(1.8); /* Opera */
+}
 section[name='application'] #previews .dz-preview .dz-progress {
     display: none;
+    float: right;
     position: absolute;
 	width: 595px;
     height: 20px;
-    top: 140px;
-	left: 275px;
+    margin-top: -20px;
     background: #f00;
 }
 section[name='application'] #previews .dz-preview.dz-processing .dz-progress {
@@ -343,13 +452,11 @@ section[name='application'] #previews .dz-preview .dz-error-mark {
   background-repeat: no-repeat;
 }
 section[name='application'] #previews a.dz-remove {
+    float: right;
 	text-decoration: none;
 	display: block;
-	position: absolute;
 	width: 595px;
 	height: 30px;
-	top: 165px;
-	left: 275px;
 	padding: 4px 5px;
 	text-align: center;
 	color: #aaa;
@@ -368,7 +475,7 @@ section[name='application'] #previews a.dz-remove:hover {
 }
 section[name='application'] #application-button-container {
 	text-align: center;
-	width: 605px;
+	width: 900px;
 }
 section[name='application'] .application-button {
 	display: inline-block;

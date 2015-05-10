@@ -1,4 +1,4 @@
-![alt text][logo]
+![prawetinkjet][logo]
 
 [logo]: https://github.com/Yanatecho/ams/blob/master/public/img/logo-small.png?raw=true"ประเวศอิงค์เจ็ท"
 
@@ -13,8 +13,9 @@ Advertising Management System <br>
 
 ด้วยเหตุดังกล่าวจึงได้เริ่มต้นพัฒนาระบบนี้ขึ้นเพื่อใช้บริหารจัดการภายในโรงงานผลิตป้ายอิงค์เจ็ทโดยเฉพาะ
 
-## :vs: 0.0.0
-    อัพโหลดไฟล์ได้เป็นครั้งแรก
+## :white_check_mark: คุณสมบัติของระบบ
++ อัพโหลดไฟล์ได้
++ แนบรายละเอียดไปพร้อมกับไฟล์ที่อัพโหลดได้
 
 
 [- วิธีติดตั้ง](https://github.com/Yanatecho/ams/blob/master/document/install.md "อ่านวิธีการติดตั้ง เพื่อทำการติดตั้ง AMS")
