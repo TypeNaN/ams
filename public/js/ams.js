@@ -36,14 +36,17 @@ $('body').dropzone({
 			);
 		});
 		this.on('thumbnail', function(file, thumbnail) {
-			artwork_thumbnail(file);
+			artwork_added(file);
 		});
 		this.on('no-thumbnail', function(file) {
-			artwork_thumbnail(file);
+			artwork_added(file);
+		});
+		this.on("sending", function(file, xhr, formData) {
+			artwork_sending(file, formData);
 		});
 	}
 });
-var artwork_thumbnail = function (file){
+var artwork_added = function (file){
 	$('#application-msg').text('เพิ่มไฟล์ ' + file.name + ' แล้ว');
 	$('#' + file.previewElement.id + ' .on-addedfile').fadeOut(500);
 	setTimeout(function(){$('#' + file.previewElement.id + ' .on-addedfile').remove();},500);
@@ -131,4 +134,26 @@ var artwork_meta = function (id){
 	+'</div>';
 	if ($('#' + id + '-artwork-meta').length){$('#' + id + '-artwork-meta').replaceWith(e1);$('#' + id + '-artwork-urgently').replaceWith(e2);}
 	else{$('#' + id + ' .dz-details').append(e1);$('#' + id + ' .dz-details').append(e2);}
+};
+var artwork_sending = function (file, formData){
+	$("#application-msg").text("กำลังอัพโหลดไฟล์ " + file.name + " ไปยังเซิร์ฟเวอร์");
+	var urgently = $("input[name=\"" + file.previewElement.id + "-urgently\"]").filter(':checked').val();
+	if(urgently==undefined){urgently = 0;}
+	formData.append("data",JSON.stringify({
+		"customer": {
+			"name": $("#customer").val(),
+			"contact": $("#contact").val(),
+			"type": $("input[name=\"" + file.previewElement.id + "-type\"]").filter(':checked').val(),
+			"mat": $("input[name=\"" + file.previewElement.id + "-mat\"]").filter(':checked').val(),
+			"option": $("input[name=\"" + file.previewElement.id + "-option\"]").filter(':checked').val(),
+			"width": $("input[name=\"" + file.previewElement.id + "-width\"]").val(),
+			"height": $("input[name=\"" + file.previewElement.id + "-height\"]").val(),
+			"amount": $("input[name=\"" + file.previewElement.id + "-amount\"]").val(),
+			"comment": $("input[name=\"" + file.previewElement.id + "-comment\"]").val(),
+			"urgently": urgently,
+			"date": file.previewElement.id,
+			"status": 0
+		}
+	}));
+	$("#" + file.previewElement.id + " .dz-details").text('');
 };
