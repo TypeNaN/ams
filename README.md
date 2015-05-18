@@ -15,6 +15,6 @@ Advertising Management System <br>
 
 ## คุณสมบัติของระบบ
 + :white_check_mark: อัพโหลดไฟล์ได้
-
++ :white_check_mark: กำหนดรายละเอียดก่อนอัพโหลดไฟล์ได้
 
 [- วิธีติดตั้ง](https://github.com/Yanatecho/ams/blob/master/document/install.md "อ่านวิธีการติดตั้ง เพื่อทำการติดตั้ง AMS")
