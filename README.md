@@ -14,7 +14,7 @@ Advertising Management System <br>
 ด้วยเหตุดังกล่าวจึงได้เริ่มต้นพัฒนาระบบนี้ขึ้นเพื่อใช้บริหารจัดการภายในโรงงานผลิตป้ายอิงค์เจ็ทโดยเฉพาะ
 
 ## คุณสมบัติของระบบ
-+ :white_check_mark: อัพโหลดไฟล์ได้
-+ :white_check_mark: กำหนดรายละเอียดก่อนอัพโหลดไฟล์ได้
+:white_check_mark: อัพโหลดไฟล์ได้
+:white_check_mark: กำหนดรายละเอียดก่อนอัพโหลดไฟล์ได้
 
 [- วิธีติดตั้ง](https://github.com/Yanatecho/ams/blob/master/document/install.md "อ่านวิธีการติดตั้ง เพื่อทำการติดตั้ง AMS")
