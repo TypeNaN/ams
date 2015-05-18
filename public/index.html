@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>AMS UNDER CONSTRUCTION</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="3rd/jquery-1.11.2.js"></script>
+	<script src="3rd/dropzone.js"></script>
+	<script>
+	//<![CDATA[
+		now = new Date();
+		var thday = new Array ("อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์");
+		var thmonth = new Array ("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน", "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
+		var stDate = "วัน " + thday[now.getDay()] + " ที่ " + now.getDate() + " " + thmonth[now.getMonth()] + " " + (now.getFullYear()+543);
+	//]]>
+	</script>
+</head>
+<body>
+
+<section name='application'>
+	<div id="application-msg">ลากไฟล์วางบนจอเพื่ออัพโหลด หรือคลิกที่นี่เพื่อเลือกไฟล์</div>
+	<div id="dropzone"></div>
+	<div id="previews">
+		<div id="date_time"></div>
+	</div>
+	<div class="clear"></div>
+	<div id="application-button-container">
+		<button id="application-reset" class="application-button">Clear All</button>
+		<button id="application-submit" class="application-button">Upload File(s)</button>
+	</div>
+	<div id="logs"></div>
+</section>
+<section name='mydropzone'>
+	<div id="mydropzone-box">
+		<p>คลิกเลือกไฟล์จากคอม</p>
+		<p>หรือ</p>
+		<p>ลากไฟล์มาวางที่นี่</p>
+		<p>&nbsp;</p>
+		<p><em>เพื่ออัพโหลด<em></p>
+	</div>
+	<button id="mydropzone-exit">ปิดพื้นที่แนบไฟล์</button>
+</section>
+<div id="logo"></div>
+<section name='author'>
+	<div id='author-container'>
+		<div id='author-exit'></div>
+		<div id='author-logo-container'>
+			<a href='http://www.prawetinkjet.com' target='_blank'>
+				<img id='author-logo' width='256' height='256' border='0' src='img/logo.png' atl='Prawetinkjet' />
+			</a>
+		</div>
+		<article id='author-description'>
+			<h3><span>AMS</span> : Advertising Management System</h3>
+			<p>ระบบบริหารและควบคุมการผลิตป้ายโฆษณาประชาสัมพันธ์ ออกแบบและพัฒนาโดยเฉพาะ เพื่อให้เข้ากับการใช้งานจริงภายในองค์กร (ร้านป้าย) โดยพิจารณาตามความเหมาะสมกับกระบวนการผลิตเพื่อการใช้งานที่ง่ายและสะดวกรวดเร็ว</p>
+		</article>
+		<div id='author-link'>
+			<span>รุ่น v0.0.0 พัฒนาโดย <a href='http://www.prawetinkjet.com' target='_blank'>.::{เปรียว}::.</a></span>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+//<![CDATA[
+	$('#date_time').text(stDate + ' เวลา ' + now.toLocaleTimeString());
+	setInterval(function(){now = new Date(); $('#date_time').text(stDate + ' เวลา ' + now.toLocaleTimeString());},1000);
+	$('#logo').click(function(){ $('section[name=author]').fadeToggle(500); });
+	$("#author-exit").click(function(){ $('section[name=author]').fadeToggle(500); });
+	$('#application-msg').click(function(){ $('section[name=mydropzone]').fadeToggle(500); });
+	$('#mydropzone-exit').click(function(){ $('section[name=mydropzone]').fadeToggle(500); });
+//]]>
+</script>
+<script src="js/dropzone-box.js"></script>
+</body>
+</html>
