@@ -1,6 +1,6 @@
 {
   "name": "AMS",
-  "version": "under construction",
+  "version": "0.0.0",
   "description": "AMS : Advertising Management System ระบบบริหารและควบคุมการผลิตป้ายโฆษณาประชาสัมพันธ์",
   "private": true,
   "main": "index.js",
