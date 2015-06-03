@@ -48,8 +48,9 @@ git clone git://github.com/Yanatecho/ams.git
 ```
 ##### 2.2 ติดตั้ง Node Modules สำหรับ AMS
 - **express** ^4.12.0
-- **multer** ^0.1.8
+- **imagemagick-native** ^1.7.0
 - **mongojs** ~0.18.2
+- **multer** ^0.1.8
 
 ```shell
 npm install

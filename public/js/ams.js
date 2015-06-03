@@ -15,7 +15,7 @@ $('body').dropzone({
 	maxThumbnailFilesize: 10,
 	addRemoveLinks: true,
 	dictFileTooBig: 'ขนาด {{filesize}}MB นี่มันใหญ่เกินไปแล้ว จำกัดไม่เกิน {{maxFilesize}}MB',
-	dictInvalidFileType: 'ระบบเน้นความรวดเร็วของกระบวนการผลิต จึงรับเฉพาะไฟล์ภาพนามสกุล JPG เท่านั้น',
+	dictInvalidFileType: 'รับเฉพาะไฟล์สกุล JPG',
 	dictResponseError: 'เกิดความผิดพลาดรหัส {{statusCode}}',
 	dictCancelUpload: 'ยกเลิก',
 	dictCancelUploadConfirmation: 'แน่ใจเหรอว่าจะยกเลิก',
@@ -28,24 +28,35 @@ $('body').dropzone({
 		var resetBn = document.querySelector('#application-reset');
 		submitBn.addEventListener('click', function(){_this.processQueue();});
 		resetBn.addEventListener('click', function(){_this.removeAllFiles();});
-		this.on('addedfile', function(file) {
-			$('#' + file.previewElement.id + ' .dz-details').append('<div class="on-addedfile"></div>');
-			$('#' + file.previewElement.id + ' .on-addedfile').html('<h2>กำลังอ่านไฟล์... </h2> <h2>โปรดรอสักครู่...</h2>'
-				+	'<br/> อาจใช้เวลานานหากไฟล์มีขนาดใหญ่'
-				+	'<br/> เมื่ออ่านไฟล์เสร็จ กรุณากรอกรายละเอียดให้ครบถ้วน'
-			);
-		});
-		this.on('thumbnail', function(file, thumbnail) {
-			artwork_added(file);
-		});
-		this.on('no-thumbnail', function(file) {
-			artwork_added(file);
-		});
-		this.on("sending", function(file, xhr, formData) {
-			artwork_sending(file, formData);
-		});
+		this.on("dragover", function() {artwork_dragover();});
+		this.on("dragleave", function() {artwork_dragleave();});
+		this.on("drop", function() {artwork_dragleave();});
+		this.on('addedfile', function(file) {artwork_adding(file);});
+		this.on('thumbnail', function(file, thumbnail) {artwork_added(file);});
+		this.on('no-thumbnail', function(file) {artwork_added(file);});
+		this.on("sending", function(file, xhr, formData) {artwork_sending(file, formData);});
+		this.on("success", function(file, response) {artwork_success(file, response);});
 	}
 });
+var artwork_dragover = function (){
+	$("#previews").css({
+		"background": "rgba(44, 44, 44, 1) url(../img/sprite002.png) repeat-x 190px -50px",
+		"border": "2px dashed #666"
+	});
+};
+var artwork_dragleave = function (){
+	$("#previews").css({
+		"background": "rgba(66, 66, 66, 0.9) url(../img/sprite002.png) repeat-x 190px -510px",
+		"border": "2px dashed #666"
+	});
+};
+var artwork_adding = function (file){
+	$('#' + file.previewElement.id + ' .dz-details').append('<div class="on-addedfile"></div>');
+	$('#' + file.previewElement.id + ' .on-addedfile').html('<h2>กำลังอ่านไฟล์... </h2> <h2>โปรดรอสักครู่...</h2>'
+		+	'<br/> อาจใช้เวลานานหากไฟล์มีขนาดใหญ่'
+		+	'<br/> เมื่ออ่านไฟล์เสร็จ กรุณากรอกรายละเอียดให้ครบถ้วน'
+	);
+};
 var artwork_added = function (file){
 	$('#application-msg').text('เพิ่มไฟล์ ' + file.name + ' แล้ว');
 	$('#' + file.previewElement.id + ' .on-addedfile').fadeOut(500);
@@ -156,4 +167,10 @@ var artwork_sending = function (file, formData){
 		}
 	}));
 	$("#" + file.previewElement.id + " .dz-details").text('');
+};
+var artwork_success = function (file, response){
+	if(response == "OK"){
+		$("#" + file.previewElement.id).fadeOut(5000);
+		setTimeout(function(){$("#" + file.previewElement.id).remove();},5000);
+	}
 };
